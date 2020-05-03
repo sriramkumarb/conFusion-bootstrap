@@ -33,16 +33,25 @@
             <li class="nav-item"><a class="nav-link" href="contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
           </ul>
           <span class="navbar-text">
-            <a data-toggle="modal" data-target="#loginmodal">
+            
+            <!-- remove data-* attribute -->
+
+            <!-- <a data-toggle="modal" data-target="#loginmodal">
+                <span class="fa fa-lg fa-sign-in"></span>Login
+            </a> -->
+
+            <!-- adding jquery for login -->
+            <a id="loginbtn">
                 <span class="fa fa-lg fa-sign-in"></span>Login
             </a>
+
           </span>
         </div>
       </nav>
     
     <!-- Login modal -->
 
-    <div id="loginmodal" class="modal fade" role="dialog">
+    <div id="loginModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
             <div class="modal-content">
                 <div class="modal-header">
@@ -82,7 +91,7 @@
 
     <!-- reserve table modal -->
 
-    <div id="reserveTableModal" class="modal fade" role="dialog">
+    <div id="reserveform" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
             <div class="modal-content">
                 <div class="modal-header">
@@ -182,14 +191,25 @@
                     <img src="/img/logo.png" alt="logo" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm align-self-center">
-                    <a type="button" href="#reserveTableModal"
+
+                    <!-- reserve table - model implementation -->
+
+                    <!-- <a type="button" href="#reserveTableModal"
                     data-toggle="modal" data-target="#reserveTableModal" 
-                     class="btn btn-warning nav-link btn-block">Reserve Table</a>
+                     class="btn btn-warning nav-link btn-block">Reserve Table</a> -->
+
+                    <!-- tool tip implementation -->
 
                      <!-- <a type="button" href="#reserveTableForm" data-toggle="tooltip" data-html="true"
                      title="Or Call us at <br> <strong> +852 12345678 </strong>"
                      data-placement="bottom"
                      class="btn btn-warning nav-link btn-block">Reserve Table</a> -->
+
+                    <!-- reserve table implementation using jquery -->
+
+                    <a type="button" id="reservebtn"
+                    class="btn btn-warning nav-link btn-block">Reserve Table</a>
+                    
 				</div>
             </div>
         </div>
@@ -263,7 +283,7 @@
         </div>
 
         <!-- website content -->
-        
+
         <div class="row row-content align-items-center">
             <div class="col-12 col-sm-4 order-sm-last col-md-3">
                 <h3>Our Lipsmacking Culinary Creations</h3>
@@ -448,21 +468,37 @@
     <!-- one button 'play and pause' script -->
 
     <script>
+
         $(document).ready(function(){
             $("#mycarousel").carousel( { interval: 2000 } );
+
             $("#carouselButton").click(function(){
+
                 if ($("#carouselButton").children("span").hasClass('fa-pause')) {
                     $("#mycarousel").carousel('pause');
                     $("#carouselButton").children("span").removeClass('fa-pause');
                     $("#carouselButton").children("span").addClass('fa-play');
                 }
+
                 else if ($("#carouselButton").children("span").hasClass('fa-play')){
                     $("#mycarousel").carousel('cycle');
                     $("#carouselButton").children("span").removeClass('fa-play');
                     $("#carouselButton").children("span").addClass('fa-pause');                    
                 }
+
             });
+
+            // JavaScript code has been added to the page to trigger the Reserve Table modal.
+            $("#reservebtn").click(function(){
+                $("#reserveform").modal('show');
+            });
+            // JavaScript code has been added to the page to trigger the Reserve Login modal.
+            $("#loginbtn").click(function(){
+                $("#loginModal").modal('show');
+            });
+
         });
+
     </script>
 
 </body>
