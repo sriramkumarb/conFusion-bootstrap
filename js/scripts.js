@@ -1,24 +1,3 @@
-// tooltip script 
-
-{/* <script>
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-</script> */}
-
-//  two buttons 'play and pause' script
-
-{/* <script>
-    $(document).ready(function(){
-        $("#mycarousel").carousel( { interval: 2000 } );
-        $("#carousel-pause").click(function(){
-            $("#mycarousel").carousel('pause');
-        });
-        $("#carousel-play").click(function(){
-            $("#mycarousel").carousel('cycle');
-        });
-    });
-</script> */}
 
 //  one button 'play and pause' script
 
